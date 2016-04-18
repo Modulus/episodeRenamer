@@ -12,3 +12,9 @@ class RenameTest(unittest.TestCase):
         expected = "S03E01 - Conquest of Cuteness.mp4"
         result = renamer.rename(text,  r"(\d+)(.*)(\d+)", ".")
         self.assertEqual(result, expected)
+
+    def test_has_e(self):
+        text = "06e12 - Ocarina.mp4"
+        expected = "S06E12 - Ocarina.mp4"
+        result = renamer.rename(text, r"(\d+)(\w*)(\d+)", "e")
+        self.assertEqual(result, expected)
